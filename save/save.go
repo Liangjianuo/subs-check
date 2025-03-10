@@ -293,6 +293,9 @@ func genUrls(data []byte) (*bytes.Buffer, error) {
 					q.Set("host", v)
 				case "grpc-service-name":
 					q.Set("serviceName", v)
+				// mihomo 下划线和横杠都兼容；base64需要改成横杠
+				case "obfs_password":
+					q.Set("obfs-password", v)
 				default:
 					q.Set(k, v)
 				}
